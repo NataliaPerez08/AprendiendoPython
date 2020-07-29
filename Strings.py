@@ -39,7 +39,7 @@ print(b.split(","))
 
 #Verifica si algo esta en el string
 texto = "The rain in Spain stays mainly in the plain"
-prueba = "ain" in texto
+prueba = "ai" in texto
 print(prueba)
 
 
