@@ -164,7 +164,7 @@ semana.discard("enero")
 
 print("Corregido "+str(semana))
 
-#Es posible usar el método pop pero no puedes 
+#Es posible usar el método pop() pero no puedes 
 #controlar el elemento eliminado
 #Se puede usar el this.clear() para vaciar el set
 # del thisSet   para eliminar el set 
@@ -187,15 +187,167 @@ dias = union.difference(numeros)
 
 num = union.difference(semana)
 
+#Otro método similar es difference_update
+# unSet.difference_update(otro set)
+#Este modifica el set original
+
+#difference() devuelve otro set
+
 print("Los dias de la semana ")
 print(dias)
 
 print("Los números ")
 print(num)
 
+#intersection() genera un nuevo set con los 
+# elementos en común de los set
 
+uno = {1j,2,3, 7, 5, 2j, 3,6}
+dos ={1j, 4j, 4, 6j, 2j, 10}
+
+tres = uno.intersection(dos)
+
+print("\nNumeros complejos "+str(tres))
+
+#El metodo intersection_update() elimina todos
+#los elementos que no estén en ambos conjuntos 
+
+print("Los set uno y dos tienen NO elementos en común "+str(uno.isdisjoint(dos)))
+#Si hay interseccion de los sets devuelve false, 
+# si no hay interseccion devuelve true
+
+
+tres = {1, 2, 3 ,4 ,5,14,15,17}
+cuatro = {0, 1,2,3,4,5,6,7,8,9,10,11}
+
+print("El set tres es subconjunto del cuatro "+ str(tres.issubset(cuatro)))
+#Es 'subconjunto'
+
+
+print("El set cuatro contiene al set tres "+str(cuatro.issuperset(tres)))
+#Lo contiene   tres pertenece a cuatro
+
+
+print("Los elementos pertenecientes a los set diferentes entre el set tres y el cuatro son: "+str(tres.symmetric_difference(cuatro)))
+
+#symmetric_difference()  devuelve un nuevo set 
+# & symmetric_difference_update  modifica el set
+#original 
+
+print("----------Dictionaries----------")
 
 #Dictionary es una coleccion desordenada, modificable e indexada 
 #no permite miembros duplicados
-#
-#
+
+auto = {
+    "marca": "Ford",
+    "modelo": "Mustang",
+    "año": 1964
+}
+
+print(auto)
+
+#Se parece a un arreglo asociativo
+print("Se puede acceder al modelo "+ str(auto["modelo"])+" y al año "+str(auto.get("año")))
+
+#Se puede modificar la informacion de este
+auto["año"]= 2020
+
+print("Estas son las key del diccionario ")
+for i in auto:
+    print(i)
+
+#Tambien se puede hacer de esta manera:
+#   for x in Diccionetio.values():
+#     print(x)
+ 
+print("Y esta es la informacion")
+for i in auto:
+    print(auto[i])
+
+print("Para mostrar ambas se usa items() ")
+
+for x, y in auto.items():
+    print(x,y)
+
+#Para consultar la existencia se usa in
+
+print("En el diccionario auto se utiliza la llave tamaño? ")
+
+if "tamaño" in auto:
+    print("Sí, una llave es tamaño")
+else:
+    print("No, que llave más rara sería")
+
+print("El diccionario tiene "+str(len(auto))+ " llaves")
+
+
+print("Un auto deberia tener un color añadamoslo al diccionario")
+
+auto["color"] = "amarillo pollito"
+
+auto.update({"placas":"ADT-451"})
+
+auto["multas"] = "muchas"
+
+print(auto)
+
+print("Eliminemos las multas")
+
+auto.pop("multas") #del funciona igual
+# sería: 
+#         del auto["multas"]
+
+#Otra manera es usando el método popitem()
+# Sería:
+#        auto.popitem()
+# ya que elimina el último elemento añadido
+
+
+print(auto)
+
+#clear() vacia el diccionario
+#   Seria:
+#           auto.clear()
+
+
+#Puedes hacer copias de un diccionario así:
+# copy()    copia = auto.copy() 
+# dict()    copia = dict(auto)
+
+
+
+#Diccionario de diccionarios
+
+myfamily = {
+  "child1" : {
+    "name" : "Emil",
+    "year" : 2004
+  },
+  "child2" : {
+    "name" : "Tobias",
+    "year" : 2007
+  },
+  "child3" : {
+    "name" : "Linus",
+    "year" : 2011
+  }
+}
+
+print("Diccionario de diccionarios "+str(myfamily))
+print("Las llaves del diccionario de diccionarios "+str(myfamily.keys()))
+print("Los elementos del diccionario de diccionarios "+str(myfamily.items()))
+
+lol = ('centenas', 'decenas','unidades')
+llaveDic = dict.fromkeys(lol)
+print("Diccionario desde llaves")
+print(llaveDic)
+
+_yo = {
+    "nombre": "Natalia",
+    "edad": "18"
+}
+
+dor = _yo.setdefault("Dormida","False")
+#Establece un valor predeterminado
+print("Estoy dormida? "+str(dor)+str(_yo))
