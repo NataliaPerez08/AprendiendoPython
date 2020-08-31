@@ -1,9 +1,10 @@
 from random import randint
 def crearNumero(a,b):
-    if (a == 0):
-        print("Se ingreso cero como minimo, es invalido")
+    if a and b != 0:
+       return randint(a,b)
     else:
-        return randint(a,b)
+        print("Se ingreso cero es invalido")
+        return intento == 0
 try:
     i = 0
     menor = int(input("Ingrese numero menor del rango diferente de 0 "))
@@ -21,7 +22,6 @@ try:
             pass
         else:
             misIntentos.append(intento)
-
         if intento == numero:
             print("Has ganado con "+str(i)+" intento(s))")
             print("El número era "+str(numero))
