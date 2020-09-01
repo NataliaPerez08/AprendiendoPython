@@ -9,7 +9,7 @@ def calif(registro):
     for i in registro:
         calificacion = int(input("Cual fue su calificacion en " +str(i)+" "))
         registroCalif.append(calificacion)
-    return registroCalif
+        return registroCalif
 
 def ordenar(registro,registroCalif, calif_por_asig):
     for j in registro:
@@ -17,13 +17,16 @@ def ordenar(registro,registroCalif, calif_por_asig):
             calif_por_asig[str(j)]= str(k)
             return calif_por_asig
 
-def promedio (registroCalif, suma):
-    for l in registroCalif:
-        suma+=l
+def reprobadas(asig_repro):
+    if len(asig_repro) > 0:
+        print("Reprobaste: ")
+        for y in asig_repro:
+            print(" "+y)
 
 cant_mate = int(input("Cuantas asignaturas desea registrar? "))
 numero = cant_mate
-calif_por_asig={'0':'0'}
+calif_por_asig={}
+asig_repro=[]
 suma = 0
 while cant_mate >0:
     cant_mate -=1
@@ -34,5 +37,10 @@ for key in calif_por_asig:
   print (key, ":", calif_por_asig[key])
   num = int(calif_por_asig[key])
   suma += num
+  if int(calif_por_asig[key]) < 6:
+      asig_repro.append(str(key))
 
-print(str(suma/numero))
+print("Promedio: "+str(suma/numero))
+reprobadas(asig_repro)
+
+
