@@ -17,6 +17,10 @@ try:
         i +=1
         print("Intento "+str(i)+":")
         intento = int(input(" "))
+        if intento > numero:
+            print("Es más pequeño")
+        if intento < numero:
+            print("Es más grande")
         if intento in misIntentos:
             print("Ya se ingreso este numero")
             pass
